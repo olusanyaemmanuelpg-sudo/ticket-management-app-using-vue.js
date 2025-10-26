@@ -24,6 +24,6 @@ const tickets = ref([
 <template>
   <div id="app">
     <AppToast />
-    <RouterView :tickets="tickets" />
+    <RouterView :tickets="tickets" :setTickets="(newTickets) => (tickets = newTickets)" />
   </div>
 </template>

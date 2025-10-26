@@ -30,34 +30,34 @@ const stats = computed(() => ({
 </script>
 
 <template>
-  <main className="dashboard-section">
-    <div className="dashboard-page">
-      <nav className="dash-nav">
+  <main class="dashboard-section">
+    <div class="dashboard-page">
+      <nav class="dash-nav">
         <h2>TicketFlow</h2>
         <button @click="handleLogout">Logout</button>
       </nav>
       <h1>Welcome, {{ user?.name }} !</h1>
       <p>Here's your ticket overview</p>
 
-      <div className="dashboard-grid">
-        <div className="StatcardStyle" style="border: 2px solid #3b82f633">
+      <div class="dashboard-grid">
+        <div class="StatcardStyle" style="border: 2px solid #3b82f633">
           <h3>Total Tickets</h3>
           <p>{{ stats.total }}</p>
         </div>
-        <div className="StatcardStyle" style="border: 2px solid #10b98133">
+        <div class="StatcardStyle" style="border: 2px solid #10b98133">
           <h3>Open</h3>
           <p>{{ stats.open }}</p>
         </div>
-        <div className="StatcardStyle" style="border: 2px solid #f59e0b33">
+        <div class="StatcardStyle" style="border: 2px solid #f59e0b33">
           <h3>In Progress</h3>
           <p>{{ stats.inProgress }}</p>
         </div>
-        <div className="StatcardStyle" style="border: 2px solid #6b728033">
+        <div class="StatcardStyle" style="border: 2px solid #6b728033">
           <h3>Closed</h3>
           <p>{{ stats.closed }}</p>
         </div>
       </div>
-      <button className="manage-tickets" @click="router.push('/manage-tickets')">
+      <button class="manage-tickets" @click="router.push('/manage-tickets')">
         Manage Tickets →
       </button>
     </div>

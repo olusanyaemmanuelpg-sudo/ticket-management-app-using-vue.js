@@ -37,7 +37,7 @@ export function useAuth() {
 
   const logout = () => {
     localStorage.removeItem('ticketapp_session')
-    user.value(null)
+    user.value = null
   }
 
   return { user, loading, login, signup, logout }
