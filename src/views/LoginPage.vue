@@ -28,7 +28,7 @@ const showPasswordInput = () => {
   showPass.value = !showPass.value
 }
 
-const submitAction = (event) => {
+const submitAction = async (event) => {
   event.preventDefault()
   const newErrors = {}
   if (!email.value) newErrors.email = 'Email is required'
@@ -39,10 +39,13 @@ const submitAction = (event) => {
     return
   }
 
-  const result = login(email.value, password.value)
+  const result = await login(email.value, password.value)
   if (result && result.success) {
+    localStorage.setItem('user', JSON.stringify(result.user || { email: email.value }))
     showToast('Login successful!', 'success')
-    router.push('/dashboard')
+
+    const redirects = router.currentRoute.value.query.redirect || '/dashboard'
+    router.push(redirects)
   } else {
     showToast(result?.error || 'Login failed', 'error')
   }

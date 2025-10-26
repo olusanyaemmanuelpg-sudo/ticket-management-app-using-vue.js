@@ -18,6 +18,7 @@ const { showToast } = useToast()
 
 const handleLogout = () => {
   logout()
+  localStorage.removeItem('user')
   showToast('Logged out successfully', 'success')
   router.push('/')
 }
