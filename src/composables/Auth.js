@@ -31,7 +31,7 @@ export function useAuth() {
   const signup = (name, email, password) => {
     const userData = { email, name, id: Date.now(), password }
     localStorage.setItem('ticketapp_session', JSON.stringify(userData))
-    user.value(userData)
+    user.value = userData
     return { success: true }
   }
 
