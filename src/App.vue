@@ -1,8 +1,10 @@
 <script setup>
-import Toast from './components/Toast.vue'
+import AppToast from './components/AppToast.vue'
 </script>
 
 <template>
-  <RouterView />
-  <Toast />
+  <div id="app">
+    <AppToast />
+    <RouterView />
+  </div>
 </template>

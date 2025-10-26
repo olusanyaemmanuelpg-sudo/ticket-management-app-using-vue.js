@@ -24,13 +24,13 @@ const { toast } = useToast()
   font-weight: 500;
   max-width: 400px;
 }
-.toast.info {
+.toast.toast-info {
   background: #3b82f6;
 }
-.toast.success {
+.toast.toast-success {
   background: #10b981;
 }
-.toast.error {
+.toast.toast-error {
   background: #ef4444;
 }
 .slide-enter-active {

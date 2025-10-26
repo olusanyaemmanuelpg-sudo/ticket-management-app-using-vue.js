@@ -1,7 +1,7 @@
 import { ref, onMounted } from 'vue'
 
-const user = ref(null)
 export function useAuth() {
+  const user = ref(null)
   const loading = ref(true)
 
   onMounted(() => {
@@ -22,7 +22,7 @@ export function useAuth() {
     if (email === 'admin@ticket.com' && password === 'password123') {
       const userData = { email, name: 'Admin User', id: 1 }
       localStorage.setItem('ticketapp_session', JSON.stringify(userData))
-      user.value(userData)
+      user.value = userData
       return { success: true }
     }
     return { success: false, error: 'Invalid credentials' }
