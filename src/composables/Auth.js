@@ -1,7 +1,7 @@
 import { ref, onMounted } from 'vue'
 
+const user = ref(null)
 export function useAuth() {
-  const user = ref(null)
   const loading = ref(true)
 
   onMounted(() => {

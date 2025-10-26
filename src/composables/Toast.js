@@ -1,20 +1,30 @@
-import { reactive } from 'vue'
+import { ref } from 'vue'
 
-const toast = reactive({
+const toast = ref({
   message: '',
   type: 'info',
+  visible: false,
 })
 
-export function showToast(message, type = 'info', duration = 3000) {
-  toast.message = message
-  toast.type = type
-  if (duration > 0) {
-    setTimeout(() => {
-      toast.message = ''
-    }, duration)
-  }
-}
-
 export function useToast() {
-  return { toast, showToast }
+  const showToast = (message, type = 'info') => {
+    toast.value = {
+      message,
+      type,
+      visible: true,
+    }
+
+    setTimeout(() => {
+      toast.value.visible = false
+    }, 3000)
+  }
+  const hideToast = () => {
+    toast.value.visible = false
+  }
+
+  return {
+    toast,
+    showToast,
+    hideToast,
+  }
 }
