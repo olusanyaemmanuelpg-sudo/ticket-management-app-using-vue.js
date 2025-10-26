@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuth } from '@/composables/Auth'
 import { useToast } from '@/composables/Toast'
+import FooterPage from '@/components/FooterPage.vue'
 
 const router = useRouter()
 const { signup } = useAuth()
@@ -104,6 +105,7 @@ const submitAction = (event) => {
       </RouterLink>
     </div>
   </section>
+  <FooterPage />
 </template>
 
 <style>

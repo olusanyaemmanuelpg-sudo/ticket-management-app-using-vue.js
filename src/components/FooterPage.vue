@@ -1,0 +1,21 @@
+<template>
+  <footer>
+    <div className="footertext">© 2025 TicketFlow. All rights reserved.</div>
+  </footer>
+</template>
+
+<style>
+/** @format */
+
+footer {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 2rem;
+  margin-top: 4rem;
+}
+.footertext {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+  color: #94a3b8;
+}
+</style>

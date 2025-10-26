@@ -1,4 +1,5 @@
 <script setup>
+import FooterPage from '@/components/FooterPage.vue'
 const featuresDescription = [
   {
     title: 'Real-time Updates',
@@ -58,6 +59,7 @@ const featuresDescription = [
       </div>
     </div>
   </section>
+  <FooterPage />
 </template>
 
 <style>
