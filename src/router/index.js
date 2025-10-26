@@ -26,13 +26,25 @@ const router = createRouter({
       path: '/dashboard',
       name: 'DashboardPage',
       component: DashboardPage,
+      meta: { requiresAuth: true },
     },
     {
       path: '/manage-tickets',
       name: 'TicketmanagementPage',
       component: TicketManagement,
+      meta: { requiresAuth: true },
     },
   ],
+})
+
+router.beforeEach((to, from, next) => {
+  const user = JSON.parse(localStorage.getItem('user'))
+
+  if (to.meta.requiresAuth && !user) {
+    next({ path: '/login', query: { redirect: to.fullPath } })
+  } else {
+    next()
+  }
 })
 
 export default router
