@@ -32,7 +32,7 @@ const showPasswordInput = () => {
   showPass.value = !showPass.value
 }
 
-const submitAction = (event) => {
+const submitAction = async (event) => {
   event.preventDefault()
   const newErrors = {}
   if (!name.value) newErrors.fullname = 'Fullname is required'
@@ -60,10 +60,12 @@ const submitAction = (event) => {
     errors.value = newErrors
     return
   }
-  const result = signup(name.value, email.value, password.value)
+  const result = await signup(name.value, email.value, password.value)
   if (result && result.success) {
+    localStorage.setItem('user', JSON.stringify(result.user || { email: email.value }))
     showToast('Account created successfully', 'success')
-    router.push('/dashboard')
+    const redirects = router.currentRoute.value.query.redirect || '/dashboard'
+    router.push(redirects)
   }
 }
 </script>
